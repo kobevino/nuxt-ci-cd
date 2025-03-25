@@ -6,7 +6,9 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN --mount=type=cache,id=yarn,target=/root/.yarn yarn install --production --frozen-lockfile
+# RUN --mount=type=cache,id=yarn,target=/root/.yarn yarn install --production --frozen-lockfile
+RUN yarn install --production --frozen-lockfile
+
 
 COPY . .
 
