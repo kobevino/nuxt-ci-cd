@@ -1,9 +1,5 @@
 version: 0.2
 
-env:
-  variables:
-    DOCKER_BUILDKIT: 1
-
 phases:
   pre_build:
     commands:
@@ -26,4 +22,4 @@ artifacts:
     - imagedefinitions.json
 cache:
   paths:
-    - '/root/.yarn/**/*'
+    - '/root/.cache/yarn/**/*'
