@@ -5,6 +5,8 @@ phases:
     commands:
       - echo "Logging in to Amazon ECR..."
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com
+      - docker --version
+      - export DOCKER_BUILDKIT=1
   build:
     commands:
       - echo "Building the Docker image..."
@@ -22,6 +24,3 @@ phases:
 artifacts:
   files:
     - imagedefinitions.json
-cache:
-  paths:
-    - '/root/.cache/yarn/**/*'
