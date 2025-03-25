@@ -1,7 +1,7 @@
 <template>
   <div>
+    <h1>TEST1234567</h1>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
-    <h1>TEST123456</h1>
   </div>
 </template>
