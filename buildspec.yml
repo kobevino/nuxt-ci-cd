@@ -5,13 +5,13 @@ phases:
     commands:
       - echo "Logging in to Amazon ECR..."
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com
-      - docker buildx --version
+      - docker --version
       - export DOCKER_BUILDKIT=1
   build:
     commands:
       - echo "Building the Docker image..."
       - |
-        docker buildx build -t nuxt-test \
+        docker build -t 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest \
           --cache-to mode=max,image-manifest=true,oci-mediatypes=true,type=registry,ref=961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:cache \
           --cache-from type=registry,ref=961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:cache .
       - docker tag nuxt-test:latest 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest
