@@ -5,7 +5,11 @@ phases:
     commands:
       - echo "Logging in to Amazon ECR..."
       - aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com
-      - docker --version
+      - echo "Installing buildx..."
+      - mkdir -p ~/.docker/cli-plugins
+      - curl -sSL https://github.com/docker/buildx/releases/download/v0.12.0/buildx-v0.12.0.linux-amd64 -o ~/.docker/cli-plugins/docker-buildx
+      - chmod +x ~/.docker/cli-plugins/docker-buildx
+      - docker buildx version
       - export DOCKER_BUILDKIT=1
   build:
     commands:
