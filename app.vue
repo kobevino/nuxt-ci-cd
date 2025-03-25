@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>!@#</div>
+    <div>!@#123</div>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
   </div>
