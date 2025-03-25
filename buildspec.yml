@@ -15,6 +15,6 @@ phases:
       - docker push 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest
       - echo "Generating imagedefinitions.json..."
       - printf '[{"name":"nuxt-test","imageUri":"961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest"}]' > imagedefinitions.json
-# artifacts:
-#   files:
-#     - imagedefinitions.json
+artifacts:
+  files:
+    - imagedefinitions.json
