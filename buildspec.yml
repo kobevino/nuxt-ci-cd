@@ -16,12 +16,19 @@ phases:
           --cache-to mode=max,image-manifest=true,oci-mediatypes=true,type=registry,ref=961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:cache \
           --cache-from type=registry,ref=961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:cache \
           --push .
+      - docker create --name temp-container 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest
+      - docker cp temp-container:/app/.output/public ./static
+      - docker rm temp-container
   post_build:
     commands:
       - echo "Pushing the Docker image..."
       # - docker push 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest
       - echo "Generating imagedefinitions.json..."
       - printf '[{"name":"nuxt-test","imageUri":"961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest"}]' > imagedefinitions.json
+      - echo "Uploading static files to S3..."
+      - aws s3 sync ./static s3://nuxt-template-s3
+      - echo "Invalidating CloudFront cache..."
+      - aws cloudfront create-invalidation --distribution-id EDP1CND5UTA3L --paths "/*"
 artifacts:
   files:
     - imagedefinitions.json
