@@ -8,11 +8,9 @@ phases:
   build:
     commands:
       - echo "Building the Docker image..."
-      # - docker build -t nuxt-test .
-      # - docker tag nuxt-test:latest 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest
       - docker buildx create --use
       - |
-        docker buildx build -t 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest \
+        docker buildx build -build-arg NUXT_APP_CDN_URL="$CDN_URL" -t 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest \
           --cache-to mode=max,image-manifest=true,oci-mediatypes=true,type=registry,ref=961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:cache \
           --cache-from type=registry,ref=961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:cache \
           --push .
@@ -22,7 +20,6 @@ phases:
   post_build:
     commands:
       - echo "Pushing the Docker image..."
-      # - docker push 961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest
       - echo "Generating imagedefinitions.json..."
       - printf '[{"name":"nuxt-test","imageUri":"961341524098.dkr.ecr.ap-northeast-2.amazonaws.com/nuxt-test:latest"}]' > imagedefinitions.json
       - echo "Uploading static files to S3..."
