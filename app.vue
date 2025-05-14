@@ -9,4 +9,5 @@
 
 <script setup lang="ts">
   const { $config } = useNuxtApp()
+  console.log($config.public.apiUrl);
 </script>
