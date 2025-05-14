@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>런타임 환경변수 테스트</h1>
+    <h1>runtime env test</h1>
     <h1>{{ $config.public.apiUrl }}</h1>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
