@@ -25,7 +25,7 @@ phases:
       - echo "Uploading static files to S3..."
       - aws s3 sync ./static s3://nuxt-template-s3
       - echo "Invalidating CloudFront cache..."
-      - aws cloudfront create-invalidation --distribution-id EDP1CND5UTA3L --paths "/_nuxt"
+      - aws cloudfront create-invalidation --distribution-id EDP1CND5UTA3L --paths "/*"
 artifacts:
   files:
     - imagedefinitions.json
