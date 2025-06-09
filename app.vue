@@ -4,6 +4,7 @@
     <h1>{{ $config.public.apiUrl }}</h1>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
+    <div>test</div>
   </div>
 </template>
 
