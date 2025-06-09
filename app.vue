@@ -2,7 +2,7 @@
   <div>
     <h1>runtime env test</h1>
     <h1>{{ $config.public.apiUrl }}</h1>
-    <div>test123</div>
+    <div>cors test</div>
     <NuxtRouteAnnouncer />
     <NuxtWelcome />
   </div>
