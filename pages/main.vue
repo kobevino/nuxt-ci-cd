@@ -4,8 +4,7 @@
       <h1>Main Page</h1>
       <nav class="nav">
         <NuxtLink to="/main" class="nav-link active">Main</NuxtLink>
-        <!-- <NuxtLink to="/test" class="nav-link">Test</NuxtLink> -->
-        <a href="/test">Test alb 경로 분산</a>
+        <NuxtLink to="/test" class="nav-link">Test</NuxtLink>
       </nav>
     </header>
 

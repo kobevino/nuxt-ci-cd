@@ -8,7 +8,7 @@
           <h2>Main Page</h2>
           <p>View the main page prototype</p>
         </NuxtLink>
-        <NuxtLink to="/test" class="link-card">
+        <NuxtLink to="/test" external class="link-card">
           <h2>Test Page</h2>
           <p>View the test page prototype</p>
         </NuxtLink>
