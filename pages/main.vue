@@ -4,7 +4,7 @@
       <h1>Main Page</h1>
       <nav class="nav">
         <NuxtLink to="/main" class="nav-link active">Main</NuxtLink>
-        <NuxtLink to="/test" class="nav-link">Test</NuxtLink>
+        <NuxtLink to="/test" external class="nav-link">Test</NuxtLink>
       </nav>
     </header>
 
