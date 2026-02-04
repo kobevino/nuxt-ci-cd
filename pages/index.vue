@@ -4,13 +4,9 @@
       <h1>Welcome to Nuxt Prototype</h1>
       <p>Select a page to get started:</p>
       <div class="links">
-        <NuxtLink to="/main" class="link-card">
-          <h2>Main Page</h2>
-          <p>View the main page prototype</p>
-        </NuxtLink>
-        <NuxtLink to="/test" external class="link-card">
-          <h2>Test Page</h2>
-          <p>View the test page prototype</p>
+        <NuxtLink to="/insure/car-renovation" class="link-card">
+          <h2>Car Renovation</h2>
+          <p>자동차 리노베이션 보험</p>
         </NuxtLink>
       </div>
     </div>
