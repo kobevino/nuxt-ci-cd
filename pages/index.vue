@@ -4,7 +4,7 @@
       <h1>Welcome to Nuxt Prototype</h1>
       <p>Select a page to get started:</p>
       <div class="links">
-        <NuxtLink to="/insure/car-renovation" class="link-card">
+        <NuxtLink to="/insure/car-renovation" external class="link-card">
           <h2>Car Renovation</h2>
           <p>자동차 리노베이션 보험</p>
         </NuxtLink>
